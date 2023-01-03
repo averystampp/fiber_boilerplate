@@ -23,10 +23,11 @@ func CheckID(c *fiber.Ctx) bool {
 	if err != nil {
 		return false
 	}
-	token := sess.Get("session-token")
-	if s.SessionId != token {
-		fmt.Println("Dont work")
 
+	if s.SessionId != sess.ID() {
+		fmt.Println("Dont work")
+		fmt.Println(s.SessionId)
+		fmt.Println(sess.ID())
 		return false
 
 	}

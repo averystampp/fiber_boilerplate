@@ -27,9 +27,6 @@ func Login(c *fiber.Ctx) error {
 		fmt.Println(err)
 	}
 	defer sess.Save()
-	sess.Regenerate()
-	sess.Set("session-token", sess.ID())
-	fmt.Println(sess.Get("session-token"))
 	return c.JSON(sess.ID())
 
 }

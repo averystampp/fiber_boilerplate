@@ -9,10 +9,13 @@ import (
 )
 
 func DeleteUser(c *fiber.Ctx) error {
-	auth.CheckID(c)
-	db := database.DBConn
-	userId := c.Params("id")
-	var user model.User
-	db.Delete(&user, userId)
-	return c.SendString("Deleted post number " + userId)
+	if auth.CheckID(c) {
+		db := database.DBConn
+		userId := c.Params("id")
+		var user model.User
+		db.Delete(&user, userId)
+		return c.SendString("Deleted User " + userId)
+
+	}
+	return c.SendString("Could not delete user")
 }

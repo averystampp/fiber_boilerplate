@@ -49,6 +49,7 @@ func main() {
 	app.Post("/register", routes.Register)
 	app.Delete("/user/:id", routes.DeleteUser)
 	app.Get("/logout", routes.Logout)
+	app.Get("/auth", routes.Authroute)
 
 	// Port that server is exposed on
 	app.Listen(":3000")
