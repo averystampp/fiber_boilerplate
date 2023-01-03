@@ -1,4 +1,4 @@
-module github.com/averystampp/firstapp
+module github.com/averystampp/boilerplate/gobackend
 
 go 1.19
 
